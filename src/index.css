@@ -1,0 +1,511 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+ 
+ 
+}
+
+:root {
+  --glow-color: hsl(186 100% 69%);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 100dvw;
+  box-sizing: border-box;
+   overflow-x: hidden;
+
+   background-color: #f5f5f5 
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "headermenu headermenu"
+    "content content"
+    "footer footer";
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  grid-template-rows: auto auto 1fr auto; /* Alturas dinámicas */
+  min-height: 100vh;
+  max-width: 100%; /* Asegura que no exceda el ancho del viewport */
+
+  gap: 10px;
+}
+
+.container > div {
+  max-width: 100%; /* Ajusta contenido para que no exceda el ancho */
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.container > div.header {
+  grid-area: header;
+  text-align: center;
+}
+
+.container > div.headermenu {
+  grid-area: headermenu;
+  z-index: 1000;
+}
+
+.container > div.content {
+  grid-area: content;
+}
+
+.container > div.footer {
+  grid-area: footer;
+  z-index: 100;
+  
+  max-width: 100%; /* Asegura que el footer no exceda el ancho del contenedor */
+ 
+}
+
+/* CSS Para el componente ServicesARS */
+.wrapper {
+  border: 2px solid rgb(13, 160, 146); /* Color principal */
+  width: 75%;
+  max-width: 2000px;
+  margin-inline: auto;
+  position: relative;
+  height: 150px;
+  margin-top: 2rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+  background-color: #f5f5f5; /* Fondo sutil para mejor contraste */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.item {
+  display: flex;
+  align-items: center; /* Centrado vertical */
+  justify-content: center;
+  width: 250px;
+  height: 100%; /* Asegura que la altura coincida con la de .wrapper */
+  position: absolute;
+  left: max(calc(250px * 8), 90%);
+  animation-name: scrollleft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px; /* Sombra más definida */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.item img {
+  width: 100%; /* Imagen llena el contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor */
+  transition: transform 0.3s ease; /* Transición suave en hover */
+}
+
+
+.item:hover img {
+  transform: scale(1.1); /* Efecto de hover */
+}
+
+
+@keyframes scrollleft {
+  to {
+    left: -250px; /* Movimiento hacia la izquierda */
+  }
+}
+
+.item1 {
+  animation-delay: -3.75s;
+}
+.item2 {
+  animation-delay: -7.5s;
+ 
+}
+.item3 {
+  animation-delay: -11.25s;
+   
+}
+.item4 {
+  animation-delay: -15s;
+ 
+ background-color: black;
+}
+.item5 {
+  animation-delay: -18.75s;
+ 
+}
+.item6 {
+  animation-delay: -22.5s;
+ 
+}
+.item7 {
+  animation-delay: -26.25s;
+  
+}
+.item8 {
+  animation-delay: -30s;
+ 
+ 
+}
+
+.wrapper:hover .item {
+  animation-play-state: paused; /* Pausa la animación al pasar el cursor */
+}
+
+
+/* EL linkhover para el Hover del Navbar */
+
+.linkhover {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+  overflow: hidden;
+}
+.linkhover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  /* background-color: #ffffff; */
+    background: radial-gradient(circle, rgba(222,35,34,1) 0%, rgba(1,161,152,1) 100%);
+
+  width: 0;
+  transition: width 0.3s ease;
+
+}
+
+.linkhover:hover::after {
+  width: 100%;
+  animation: heartbeat116 1.5s infinite;
+ 
+ 
+}
+@keyframes heartbeat116 {
+  0%,
+  100% {
+    width: 100%;
+  }
+
+  50% {
+    width: 60%;
+  }
+}
+/* Fin del linkhover  */
+
+
+.link-5 {
+  transition: 0.4s;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+}
+
+.aside {
+  color: #fff;
+  width: 100vp;
+  padding-left: 20px;
+  height: 95vh;
+   background-image: linear-gradient(30deg, #00e0d5, #01a198,#0a524d);  
+    background-image: linear-gradient(30deg, #0c968f, #0e7570,#052b28); 
+ 
+
+
+  border-top-right-radius: 80px;
+  position: absolute;
+  left: 0;
+}
+
+.aside a {
+  font-size: 12px;
+  color: #fff;
+  display: block;
+  padding: 12px;
+  padding-left: 15px;
+  text-decoration: under;
+  -webkit-tap-highlight-color: transparent;
+ }
+
+.aside a:hover {
+  color: #3050f0;
+  background: #fff;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.aside a:hover::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 20px 0 0 #fff;
+}
+
+.aside a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 38px;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+/* LOCATION ANIMATION ICON  */
+.boxLocation {
+  animation: updown 2s ease 0.2s infinite;
+  color: red;
+  font-size: 50px;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes shadow {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: scale(0.95);
+    opacity: 0.28;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+/* Glassmorphism Login y WhatsApp Botton flotante*/
+.glassmorphism {
+
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 2px solid rgba(255, 255, 255, 0.1); */
+}
+
+
+ /* CODIGO PARA EL BUTTON CITA DE LA BARRA DE DE NAVEGACION TOP.  */
+.glowing-btn-container {
+  position: fixed; /* Hace que el botón permanezca fijo */
+  top: 20px; /* Desplazamiento desde la parte superior */
+  right: 10px; /* Desplazamiento desde la derecha */
+  z-index: 10000; /* Asegura que esté por encima de otros elementos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glowing-btn {
+  position: relative;
+  padding: 0.35em 1em;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+  color: var(--glow-color);
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background-color: hotpink;
+  perspective: 2em;
+  cursor: pointer;
+  box-shadow: 
+    inset 0 0 0.5em var(--glow-color),
+    0 0 0.5em var(--glow-color);
+  animation: border-flicker 10s linear infinite;
+}
+
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  text-shadow: 
+    0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+
+  animation: text-flicker 10s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before,
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}
+
+.glowing-btn::before {
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+}
+
+.glowing-btn::after {
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+/* Hover Effects */
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt,
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  opacity: 1;
+}
+
+.glowing-btn:hover::before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover::after {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes faulty-flicker {
+  0%, 2% { opacity: 0.1; }
+  4%, 19% { opacity: 0.5; }
+  21% { opacity: 0.1; }
+  23% { opacity: 1; }
+  80% { opacity: 0.5; }
+  83% { opacity: 0.4; }
+  87% { opacity: 1; }
+}
+
+@keyframes text-flicker {
+  0%, 8%, 12% { opacity: 0.1; }
+  2%, 9%, 20%, 30%, 77%, 100% { opacity: 1; }
+  25% { opacity: 0.3; }
+  70% { opacity: 0.7; }
+  72% { opacity: 0.2; }
+}
+
+@keyframes border-flicker {
+  0%, 4% { opacity: 0.1; }
+  2%, 8%, 100% { opacity: 1; }
+  70% { opacity: 0.7; }
+}
+
+/* Responsive */
+@media only screen and (max-width: 600px) {
+  .glowing-btn {
+    font-size: 1em;
+  }
+}
+
+ /* FIN CODIGO PARA EL BUTTON CITA DE LA BARRA DE DE NAVEGACION TOP.  */
+
+.footer_underline_titulo {
+  position: relative;
+  display: inline-block; /* Asegura que la línea se ajuste al tamaño del texto */
+
+}
+
+.footer_underline_titulo::after {
+  content: ""; /* Necesario para mostrar el estilo */
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Ajusta la posición vertical de la línea */
+  width: 50%;
+  height: 4px; /* Grosor de la línea */
+  border-radius: 10px;
+
+  background: radial-gradient(circle, rgba(222,35,34,1) 0%, rgba(1,161,152,1) 100%);
+  transition: width 0.3s ease; /* Transición suave */
+}
+
+.footer_underline_titulo:hover::after {
+  width: 100%; /* Efecto de hover si lo deseas */
+}
+
+ 
+
+
+.location {
+  position: relative;
+  animation: up 2s infinite ease;
+
+   &::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    border-radius: 50%;
+    bottom: -26px;
+    left: -50px;
+     filter:blur(10px); 
+    animation: down 2s infinite ease;
+  }
+}
+
+@keyframes up {
+  50% {
+    transform: rotate(-0deg) translate(0px, -10px);
+  }
+}
+
+@keyframes down {
+  50% {
+    transform: rotate(45deg) translate(0, 26px) scale(.2);
+    /* filter:blur(40px) */
+  }
+}
