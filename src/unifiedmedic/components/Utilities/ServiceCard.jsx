@@ -24,14 +24,13 @@ const MainCard = ({id, title, description, serviceTitle }) => {
         alignItems: "center",
       }}
     >
-      
       <Container maxWidth="xl">
         <Typography
           align="center"
           sx={{
             fontSize: { xs: "1.2rem", md: "2.5rem" },
             textAlign: "center",
-            mb: { xs: 10, md:40 },
+            mb: { xs: 10, md: 40 },
 
             // color: "#01a198",
             color: "#FFFFFF",
@@ -48,13 +47,17 @@ const MainCard = ({id, title, description, serviceTitle }) => {
             <Card
               sx={{
                 backgroundColor: [
-                  "rgba(1, 161, 152, 0.7)", // Color 1 con 80% de opacidad
-                  "rgba(217, 79, 112, 0.7)", // Color 2 con 80% de opacidad
-                  "rgba(245, 166, 35, 0.7)", // Color 3 con 80% de opacidad
-                  "rgba(80, 178, 192, 0.7)", // Color 4 con 80% de opacidad
+                  // "rgba(1, 161, 152, 0.7)", // Color 1 con 80% de opacidad
+                  "rgba(0, 0, 0, 0.2)", // Color 2 con 80% de opacidad
+                  // "rgba(217, 79, 112, 0.7)", // Color 2 con 80% de opacidad
+                  "rgba(0, 0, 0, 0.2)", // Color 2 con 80% de opacidad
+                  //  "rgba(245, 166, 35, 0.7)", // Color 3 con 80% de opacidad
+                  "rgba(0, 0, 0, 0)", // Color 2 con 80% de opacidad
+                  "rgba(0, 0, 0, 0.2)", // Color 2 con 80% de opacidad
+                  // "rgba(80, 178, 192, 0.7)", // Color 4 con 80% de opacidad
                 ][id % 4], // Ciclo de colores según el índice
                 color: "#FFFFFF",
-                borderRadius: 2,
+                borderRadius: 1,
                 boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
                 "&:hover": {
                   transform: "scale(1.05)",

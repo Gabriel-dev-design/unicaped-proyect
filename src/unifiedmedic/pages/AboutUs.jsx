@@ -8,7 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import elizabethfoto from "/src/assets/imagenes/background/elizabethfoto.jpg";
+import elizabethfoto from "/src/assets/imagenes/background/fotoeli.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import VaccinesIcon from "@mui/icons-material/Vaccines";

@@ -1,4 +1,3 @@
-
 // Importación de bibliotecas y componentes necesarios
 import React, { useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
@@ -7,48 +6,44 @@ import { Box, Container, IconButton, useMediaQuery } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import MainCard from "../../../unifiedmedic/components/Utilities/ServiceCard";
-import imagefirst from "/src/assets/imagenes/background/image_one_emblacarousel.jpg";
-// import imageSecond from "/src/assets/videos/ekg_.mp4";
-import imageSecond from "/src/assets/imagenes/background/heart_echocardiography.png";
-import imageThird from "/src/assets/imagenes/background/electrocardiogram.png";
-
-
-
-const slides = [
-  {
-    id: 1,
-    url: `${imagefirst}`,
-    title: "Consulta Especializada",
-    serviceTitle: "Servicios de Pediatría Cardíaca",
-    description:
-      "Evaluaciones exhaustivas para identificar, prevenir y tratar cualquier problema cardíaco o relacionado con la salud de los niños.",
-  },
-  {
-    id: 2,
-    url: `${imageSecond}`,
-    title: "Ecocardiografía",
-    serviceTitle: "Diagnóstico Avanzado para el Corazón de Tu Hijo",
-    description:
-      "Estudios detallados y no invasivos del corazón para detectar cualquier anomalía estructural o funcional.",
-  },
-  {
-    id: 3,
-    url: `${imageThird}`,
-    title: "Electrocardiografía",
-    serviceTitle: "La Clave para Detectar Problemas Cardíacos Temprano",
-    description:
-      "Pruebas precisas para analizar la actividad eléctrica del corazón y detectar ritmos cardíacos anómalos.",
-  },
-];
-
-
+import imagefirst from "/src/assets/imagenes/background/banner_servicios_cardio_v2.jpg";
+import imageSecond from "/src/assets/imagenes/background/draperez.mp4";
+import imageSecond2 from "/src/assets/imagenes/background/mainbannerpura.jpg";
 
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000 }),
+    Autoplay({ delay: 7000 }),
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const isSmallScreen = useMediaQuery("(max-width:960px)");
+
+  const slides = [
+    {
+      id: 1,
+      url: isSmallScreen ? imageSecond : imageSecond2,
+      title: "Consulta Especializada",
+      serviceTitle: "Servicios de Pediatría Cardíaca",
+      description:
+        "Evaluaciones exhaustivas para identificar, prevenir y tratar cualquier problema cardíaco o relacionado con la salud de los niños.",
+    },
+    {
+      id: 2,
+      url: imagefirst,
+      // Puedes activar esto si quieres mostrar texto
+      // title: "Ecocardiografía",
+      // serviceTitle: "Diagnóstico Avanzado para el Corazón de Tu Hijo",
+      // description:
+      //   "Estudios detallados y no invasivos del corazón para detectar cualquier anomalía estructural o funcional.",
+    },
+    // {
+    //   id: 3,
+    //   url: imageThird,
+    //   title: "Electrocardiografía",
+    //   serviceTitle: "La Clave para Detectar Problemas Cardíacos Temprano",
+    //   description:
+    //     "Pruebas precisas para analizar la actividad eléctrica del corazón y detectar ritmos cardíacos anómalos.",
+    // },
+  ];
 
   // ANIMACION EN ENTRADA DE LOS CAR MainCard EN CADA SLIDE
   const [animationKey, setAnimationKey] = useState(0);
@@ -66,8 +61,6 @@ export function EmblaCarousel() {
     // Llamar inmediatamente para que se sincronice al montar
     onSelect();
   }, [emblaApi]);
-  
-
 
   const updateCurrent = () => {
     if (emblaApi) {
@@ -80,14 +73,13 @@ export function EmblaCarousel() {
     if (direction === "next") emblaApi?.scrollNext();
     updateCurrent();
   };
- 
 
   return (
     <Box
       sx={{
         overflow: "hidden",
         position: "relative",
-        mt: { xs: -6, md: -10 },
+        mt: { xs: 0, md: -10 },
         pt: "50px", // Espacio para ajustarse debajo del navbar
       }}
     >
@@ -95,7 +87,7 @@ export function EmblaCarousel() {
         <Box
           sx={{
             position: "relative",
-            height: { xs: "65vh", md: "90vh", lg: "80vh" }, // Cubre todo el viewport menos el espacio del navbar
+            height: { xs: "60vh", md: "90vh", lg: "80vh" }, // Cubre todo el viewport menos el espacio del navbar
             width: "100vw", // Cubre todo el ancho de la pantalla
           }}
         >
@@ -165,7 +157,7 @@ export function EmblaCarousel() {
                       muted
                       loop
                       style={{
-                        objectFit: "cover", // Asegura que el video se vea completo
+                        objectFit: "fill", // Asegura que el video se vea completo
                         width: "100%",
                         height: "100%",
                       }}
@@ -177,7 +169,7 @@ export function EmblaCarousel() {
                       src={slide.url}
                       alt={slide.title}
                       style={{
-                        aspectRatio: "16/16", // mantiene proporción
+                        aspectRatio: "12/16", // mantiene proporción
                         width: "100%",
                         maxHeight: "100vh",
                       }}
@@ -192,7 +184,7 @@ export function EmblaCarousel() {
                       left: 0,
                       width: "100%",
                       height: "100%",
-                      backgroundColor: "rgba(0, 0, 0, 0.5)", // Oscurece la imagen
+                      backgroundColor: "rgba(0, 0, 0, 0)", // Oscurece la imagen
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
@@ -210,7 +202,7 @@ export function EmblaCarousel() {
                         left: 0,
                         width: "100%",
                         height: "100%",
-                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
@@ -218,13 +210,7 @@ export function EmblaCarousel() {
                         color: "white",
                         padding: { xs: 2, sm: 3 },
                       }}
-                    >
-                      <MainCard
-                        id={slide.id}
-                        title={slide.title}
-                        description={slide.description}
-                      />
-                    </Box>
+                    ></Box>
                   </Box>
                 </Box>
               ))}

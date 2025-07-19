@@ -1,6 +1,6 @@
 import { FacebookOutlined, Instagram, Twitter } from "@mui/icons-material";
 import { Box, Grid2, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import Link from "@mui/material/Link";
 import ScheduleCard from "../components/Utilities/ScheduleCard";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
@@ -61,7 +61,7 @@ export const Footer = () => {
                 p: 1,
               }}
             >
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
+              {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Typography
                   variant="body2"
                   color="#FFFFFF"
@@ -76,6 +76,28 @@ export const Footer = () => {
                   <LocationOnIcon sx={{ fontSize: "1.5rem" }} />
                   Av. Pedro Henríquez Ureña 83, Sto. Dgo.
                 </Typography>
+              </Box> */}
+
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Link
+                  href="https://www.google.com/maps/place/Dra.+Pura+Perez+Cardi%C3%B3loga+Pediatra/@18.4714631,-69.9146313,17z/data=!3m1!4b1!4m6!3m5!1s0x8ea56309aae5ddc3:0x9d572b448aec0c24!8m2!3d18.4714631!4d-69.9146313!16s%2Fg%2F11s2kq92rt?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  sx={{ textDecoration: "none" }}
+                >
+                  <Typography
+                    variant="body2"
+                    color="#FFFFFF"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
+                      fontSize: "1rem",
+                    }}
+                  >
+                    <LocationOnIcon sx={{ fontSize: "1.5rem" }} />
+                    Av. Pedro Henríquez Ureña 83, Sto. Dgo.
+                  </Typography>
+                </Link>
               </Box>
 
               <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -101,7 +123,7 @@ export const Footer = () => {
               </Box>
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Link
-                  href="tel:+8496075958"
+                  href="tel:+18496075958"
                   underline="none"
                   sx={{ textDecoration: "none" }}
                 >
@@ -135,25 +157,32 @@ export const Footer = () => {
             }}
           >
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Typography
-                variant="body2"
-                color="#FFFFFF"
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  fontSize: "1rem",
-                  mb: 1,
-                }}
+              <Link
+                href="https://maps.app.goo.gl/kLZh2KKzgsqzNhdo7"
+                target="_blank"
+                sx={{ textDecoration: "none" }}
               >
-                <LocationOnIcon sx={{ fontSize: "1.5rem" }} />
-                C. Club Rotario 58, Santo Domingo 11501
-              </Typography>
+                <Typography
+                  variant="body2"
+                  color="#FFFFFF"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    fontSize: "1rem",
+                  }}
+                >
+                  <LocationOnIcon sx={{ fontSize: "1.5rem" }} />
+                  C. Club Rotario 58, Santo Domingo 11501
+                </Typography>
+              </Link>
             </Box>
+
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <a
                 href="mailto:unicaped@gmail.com?subject=Consulta&body=Hola%20me%20gustaría%20más%20información"
-                style={{ textDecoration: "none" }}
+                underline="hover"
+                sx={{ textDecoration: "none" }}
               >
                 <Typography
                   variant="body2"
@@ -174,7 +203,7 @@ export const Footer = () => {
 
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Link
-                href="tel:8496075958"
+                href="tel:+18496075958"
                 underline="none"
                 sx={{ textDecoration: "none" }}
               >

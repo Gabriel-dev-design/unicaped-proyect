@@ -15,6 +15,7 @@ import { AboutUs } from "../pages/AboutUs";
 import ServicesARS from "../pages/ServicesARS";
 import OurServices from "../pages/OurServices";
 import { MapLocation } from "../map/MapLocation";
+import AppointmentForm from "../pages/AppointmentForm";
 
 
 
@@ -54,13 +55,14 @@ export const UnifidMedicRouter = () => {
 
   return (
     <>
-         <Routes>
+      <Routes>
         <Route path="/" element={<PlantillaGlobal />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="ars" element={<ServicesARS />} />
           <Route path="services" element={<OurServices />} />
           <Route path="map" element={<MapLocation />} />
+          <Route path="appointment" element={<AppointmentForm />} />
           <Route path="/*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

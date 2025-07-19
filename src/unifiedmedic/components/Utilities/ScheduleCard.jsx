@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const AnimationCard = styled.div`
   position: relative;
-  padding: .5rem;
+  padding: .3rem;
   z-index: 1;
   max-width: 400px;
   min-width: 340px;
@@ -29,7 +29,7 @@ const AnimationCard = styled.div`
     right: -1px;
     bottom: -1px;
     border-radius: 20px;
-    padding: 4px; /* grosor del borde fino */
+    padding: 2px; /* grosor del borde fino */
     background: conic-gradient(
       from var(--angle),
       #00ffff,
@@ -55,9 +55,6 @@ const AnimationCard = styled.div`
     }
   }
 `;
-
-
-
 
 
 const ScheduleCard = () => {
@@ -100,7 +97,8 @@ const ScheduleCard = () => {
             minWidth: 300,
             margin: "auto",
             borderRadius: 4,
-            backgroundColor: "#f5f5f5",
+            background: "rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(5px)",
           }}
         >
           <CardContent>
@@ -110,11 +108,15 @@ const ScheduleCard = () => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                color: "#01a198",
               }}
             >
               <CalendarMonth
-                sx={{ color: "red", fontSize: 30, mr: 1.5, mt:{xs:5,md:1} }}
+                sx={{
+                  color: "red",
+                  fontSize: 30,
+                  mr: 1.5,
+                  mt: { xs: 5, md: 1 },
+                }}
               />
               <Typography
                 align="center"
@@ -129,20 +131,24 @@ const ScheduleCard = () => {
                   fontWeight: "900",
                   letterSpacing: { xs: ".2rem", md: ".2rem" },
                   textShadow: "1px 1px 2px rgba(0,0,0,0.2)", // sutil sombra
+                
                 }}
               >
                 Horarios Por Cita
               </Typography>
             </Box>
 
-            <Box sx={{ marginTop: 2 }}>
+            <Box sx={{ marginTop: 2, mr: 2 }}>
               {consultationHours.map((item, index) => (
                 <Grid
                   container
                   key={index}
                   justifyContent="space-between"
                   sx={{
-                    padding: 1,
+                    p: 0.7,
+                    pr: 1,
+                    m: 1,
+
                     backgroundColor: index % 2 === 0 ? "#ffffff" : "#01a198",
                     borderBottom:
                       index < consultationHours.length - 1
@@ -155,6 +161,7 @@ const ScheduleCard = () => {
                     sx={{
                       fontWeight: "bold",
                       color: index % 2 === 0 ? "#333" : "#ffffff",
+                      ml: 1,
                     }}
                   >
                     {item.day}
@@ -171,6 +178,7 @@ const ScheduleCard = () => {
                     variant="body1"
                     sx={{
                       color: index % 2 === 0 ? "#de2322" : "#ffffff",
+                      mr: 1,
                     }}
                   >
                     {item.place}

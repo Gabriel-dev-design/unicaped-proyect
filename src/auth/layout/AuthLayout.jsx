@@ -24,11 +24,7 @@ export const AuthLayout = ({ children, title }) => {
       >
         <Grid2 display="flex" justifyContent="center">
           <Stack direction="row">
-            {/* <Avatar
-                alt="Gemy Sharp"
-                src="\src\assets\imagenes\logotitle.png"
-                sx={{ width: 100, height: 100, p: 2 }}
-              /> */}
+          
           </Stack>
         </Grid2>
 

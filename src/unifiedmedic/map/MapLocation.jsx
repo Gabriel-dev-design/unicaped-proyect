@@ -11,15 +11,12 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Grid
- 
+  Grid,
 } from "@mui/material";
 import CardInfoDn from "./CardInfoDn";
-import CardInfoEste from "./CardInfoEste";
-// import logoTitle from "/src/assets/imagenes/icons/logotitle.png";
 import customIcono from "/src/assets/imagenes/icons/locationicon.png";
 import PlaceIcon from "@mui/icons-material/Place";
-
+import CardInfoEste from "./CardInfoEste";
 
 // Define un ícono personalizado
 const customIcon = new L.Icon({
@@ -30,9 +27,6 @@ const customIcon = new L.Icon({
   popupAnchor: [7, -27], // Ancla del popup [posición relativa]
 });
 
-
-
-
 // Componente para manejar el movimiento del mapa
 const MapMover = ({ position }) => {
   const map = useMap(); // Accede al mapa actual
@@ -42,20 +36,19 @@ const MapMover = ({ position }) => {
   return null;
 };
 
-
-  // Coordenadas predefinidas
-  const positions = [
-    {
-      id: 1,
-      name: "Torre KP. Santo Domingo D.N.",
-      coors: [18.471506314132455, -69.91458582441564],
-    },
-    {
-      id: 2,
-      name: "CMU. Santo Domingo Este",
-      coors: [18.486490946263473, -69.86837068152994],
-    },
-  ];
+// Coordenadas predefinidas
+const positions = [
+  {
+    id: 0,
+    name: "Torre KP. Santo Domingo D.N.",
+    coors: [18.471506314132455, -69.91458582441564],
+  },
+  {
+    id: 1,
+    name: "CMU. Santo Domingo Este",
+    coors: [18.486490946263473, -69.86837068152994],
+  },
+];
 
 export const MapLocation = () => {
   const [currentPosition, setCurrentPosition] = useState(positions[0].coors); // Posición inicial del marcador
@@ -76,23 +69,19 @@ export const MapLocation = () => {
       markerRef.current.openPopup();
     }
   }, [currentPosition]);
-  
 
   // Cambia la posición del marcador y el mapa
 
   // const handleMoveToPosition = (position, id) => {
   //   setCurrentPosition(position); // Actualiza la posición actual
   //   setIdPosition(id); // Actuliza componente informacion del Mapa
-  
+
   // };
   const handleTogglePosition = () => {
     const nextIndex = currentIndex === 0 ? 1 : 0;
     setCurrentIndex(nextIndex);
     setCurrentPosition(positions[nextIndex].coors);
   };
-
-
-
 
   return (
     <>
@@ -131,7 +120,7 @@ export const MapLocation = () => {
           <Grid
             xs={12}
             sx={{
-              width: "90vw",
+              width: "100vw",
               display: "flex",
               justifyContent: "center",
             }}
@@ -148,21 +137,21 @@ export const MapLocation = () => {
                 }
               }}
               sx={{
-                width: "100%",
-                maxWidth: "500px",
+                width: { xs: "85%", md: "50%" },
+                maxWidth: "82%",
                 borderRadius: "30px",
-                paddingY: 2,
+                paddingY: 1.5,
                 fontWeight: "bold",
                 fontSize: "1.1rem",
-                letterSpacing: "0.5px",
+                letterSpacing: "0.6px",
                 textTransform: "none",
                 background:
-                  "radial-gradient(circle at top left, #de2322 0%, #01a198 100%)",
+                  "radial-gradient(circle at top left, #de232290 0%, #01a198 100%)",
                 color: "#fff",
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
                 transition: "all 0.35s ease",
                 "&:hover": {
-                  transform: "scale(1.05)",
+                  transform: "scale(1.02)",
                   boxShadow: "0 6px 18px rgba(0, 0, 0, 0.35)",
                   background:
                     "radial-gradient(circle at bottom right, #c91d1c 0%, #018e87 100%)",
@@ -173,7 +162,7 @@ export const MapLocation = () => {
                 ? "Ir a CMU Sto. Dgo. Este"
                 : "Ir a Torre KP Sto. Dgo. D.N."}
 
-              <PlaceIcon className="location" sx={{ fontSize: 30 }} />
+              <PlaceIcon className="location" sx={{ fontSize: 30, ml: 2 }} />
             </Button>
           </Grid>
         </Grid>
@@ -220,13 +209,9 @@ export const MapLocation = () => {
 
         {/* CardInfo */}
         <Grid item xs={12} md={4} sx={{ order: { xs: 2, md: 1 } }}>
-          {currentIndex === 1 ? <CardInfoDn /> : <CardInfoEste />}
+          {currentIndex === 0 ? <CardInfoDn /> : <CardInfoEste />}
         </Grid>
       </Grid>
     </>
   );
-
 };
-
-
-

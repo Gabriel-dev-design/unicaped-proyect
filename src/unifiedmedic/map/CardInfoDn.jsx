@@ -167,7 +167,7 @@ const Boxshadow = styled.div`
     0 100px 80px rgba(0, 0, 0, 0.12);
 `;
 
-const CardInfoDn = () => {
+export const CardInfoDn = () => {
   return (
     <>
       <Boxshadow

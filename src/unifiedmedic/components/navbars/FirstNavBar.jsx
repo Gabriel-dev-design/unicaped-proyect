@@ -3,6 +3,7 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CloseIcon from "@mui/icons-material/Close";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import {
   AddIcCallOutlined,
   // CalendarMonth,
@@ -11,6 +12,7 @@ import {
 import { NavLink } from "react-router-dom";
 import logo from "/src/assets/imagenes/icons/logo1.png";
 import ButtonCita from "../Utilities/ButtonCita";
+import { CustomButton } from "../Utilities/CustomButton";
 
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -35,9 +37,7 @@ export const FirstNavBar = ({ toggleDrawer, handleScroll, isDrawerOpen }) => {
           }}
         >
           <Toolbar disableGutters>
-            <Grid
-              sx={{ display: "flex", minWidth: "95vw", alignItems: "center" }}
-            >
+            <Grid sx={{ display: "flex", width: "100%", alignItems: "center" }}>
               <Box
                 component={NavLink}
                 to="/"
@@ -131,11 +131,11 @@ export const FirstNavBar = ({ toggleDrawer, handleScroll, isDrawerOpen }) => {
               >
                 <IconButton
                   component="a"
-                  href="https://taplink.cc/dra.puraperez"
+                  // href="https://taplink.cc/dra.puraperez"
                   target="_blank"
                   rel="noopener noreferrer"
                   sx={{
-                    display: { xs: "flex", md: "none" },
+                    display: { xs: "flex", sm: "none" },
                     borderRadius: 10,
                     fontFamily: "monospace",
                     color: "inherit",
@@ -143,7 +143,7 @@ export const FirstNavBar = ({ toggleDrawer, handleScroll, isDrawerOpen }) => {
                     width: 184,
                   }}
                 >
-                  <ButtonCita />
+                  {/* <ButtonCita />  */}
                 </IconButton>
               </Box>
 

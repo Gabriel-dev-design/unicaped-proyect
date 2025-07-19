@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import imageFirst from "/src/assets/imagenes/cardsHome/pediatric-cardiology-3.jpg";
-import imageSecond from "/src/assets/imagenes/cardsHome/eco.jpg";
+
 import imageThird from "/src/assets/imagenes/cardsHome/ekg_image.jpg";
 
 const services = [
@@ -23,7 +23,7 @@ const services = [
   },
   {
     id: 2,
-    image: `${imageSecond}`, // Reemplaza con tu URL de imagen
+   
     title: "Ecocardiografía",
     description:
       "Estudios detallados y no invasivos del corazón para detectar cualquier anomalía estructural o funcional.",

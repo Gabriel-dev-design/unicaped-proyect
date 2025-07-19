@@ -25,11 +25,13 @@ import { NavLink } from "react-router-dom";
 import { FirstNavBar } from "./FirstNavBar";
 import { navlinks } from "./NavlinkArrayMenu";
 import { Translate } from "@mui/icons-material";
+// import logo from "/src/assets/imagenes/icons/logo1.png";
+import logo from "/public/logotitle.png";
 
 import ButtonCita from "../Utilities/ButtonCita";
 
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 
 export const NavBar = () => {
@@ -41,23 +43,16 @@ export const NavBar = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
+
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   const handleScroll = useCallback((id) => {
     const section = document.getElementById(id);
@@ -88,18 +83,14 @@ export const NavBar = () => {
             display: { xs: "none", md: "flex" },
             top: "7%",
             left: "50%",
-            transform: "translate(-50%,-50%)",
-
-            minWidth: "75vw",
-            mt: { xs: 4, md: 0 },
+            transform: "translateX(-50%)", // no necesitas -50% verticalmente
+            width: "75vw", // usa width, no minWidth
             zIndex: 30,
             bgcolor: "#01a19840",
-            // bgcolor: "rgba(38, 34, 84, 0.3)",
-            maxWidth: { xs: "gl", ms: "sm", md: "md", lg: "xl" },
-            boxShadow: " rgba(0, 0, 0, 0.50) 0px 5px 15px",
+            boxShadow: "0px 5px 15px rgba(0,0,0,0.5)",
           }}
         >
-          <Container maxWidth="lg">
+          <Container disableGutters maxWidth={false}>
             <Toolbar disableGutters>
               <Box
                 sx={{
@@ -137,28 +128,32 @@ export const NavBar = () => {
                 </Drawer>
               </Box>
 
-              <Typography
-                variant="h5"
-                component="a"
-                href="#app-bar-with-responsive-menu"
+              {/* LOGO PRIMERA NAVBAR */}
+
+              <Box
+                component={NavLink}
+                to="/"
+                title="Ir al inicio"
+                aria-label="Ir al inicio"
+                onClick={() => {
+                  handleScroll("home");
+                }}
                 sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                  wrap: "noWrap",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  width: "60px",
+                  ml: 4,
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
                 }}
               >
-                {/* UNICAPED */}
+                <img src={logo} alt="Logo" width="40"  />
+              </Box>
 
-                <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
-                  <img src="/src/assets/imagenes/logo1.png" alt="" width="90"/>
-                </Box>
-              </Typography>
+              {/* FIN LOGO PRIMERA NAVBAR */}
+
               <Box
                 justifyContent="center"
                 sx={{ flexGrow: 1, display: { sm: "none", md: "flex" } }}
@@ -170,7 +165,7 @@ export const NavBar = () => {
                   onClick={() => handleScroll("home")}
                   sx={{
                     mr: 2,
-                    wrap: "noWrap",
+                  whiteSpace: "nowrap",
 
                     color: "inherit",
                     textDecoration: "none",
@@ -179,29 +174,6 @@ export const NavBar = () => {
                   <HomeIcon />
                 </IconButton>
 
-                {/* {navlinks.map((item) => (
-                  <Button
-                    className="linkhover"
-                    key={item.title}
-                    color="inherit"
-                    component={NavLink}
-                    to={item.path}
-                    sx={{
-                      mr: 2,
-                      p: 2.5,
-                      // display: { xs: "flex", md: "none" },
-                      fontFamily: "monospace",
-                      fontWeight: 800,
-                      letterSpacing: ".1rem",
-                      color: "inherit",
-                      textDecoration: "none",
-                      fontSize: "18px",
-                      wrap: "noWrap",
-                    }}
-                  >
-                    {item.title}
-                  </Button>
-                ))} */}
                 {navlinks.map((item) => (
                   <Button
                     key={item.title}
@@ -228,41 +200,6 @@ export const NavBar = () => {
                   </Button>
                 ))}
               </Box>
-
-              {/* <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography sx={{ textAlign: "center" }}>
-                        {setting}
-                      </Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box> */}
             </Toolbar>
           </Container>
         </AppBar>
