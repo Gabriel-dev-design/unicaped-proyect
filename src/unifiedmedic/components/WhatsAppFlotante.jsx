@@ -1,13 +1,19 @@
 import { WhatsApp } from "@mui/icons-material";
 import { Box, IconButton, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
-export const WhatsAppFlotante = ({texto,icon,url}) => {
+
+export const WhatsAppFlotante = ({
+  // texto = "¡Hola! ¿Puedo ayudarte?",
+  url = "https://api.whatsapp.com/send?phone=18496075958&text=Hola%20!%20puedo%20ayudarte?",
+  label = "Enviar mensaje por WhatsApp a la Dra. Pura Pérez",
+}) => {
   return (
     <Box
       component="a"
-      href="https://api.whatsapp.com/send?phone=18496075958&text=Hola%20!%20puedo%20ayudarte?"
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
       sx={{
         position: "fixed",
         right: 25,
@@ -28,12 +34,10 @@ export const WhatsAppFlotante = ({texto,icon,url}) => {
         },
       }}
     >
-      <IconButton
-        aria-label="Chatear con nosotros en WhatsApp"
-        sx={{ color: "#25d366" }}
-      >
+      <IconButton aria-hidden="true" sx={{ color: "#25d366", p: 1 }}>
         <WhatsApp sx={{ fontSize: 40 }} />
       </IconButton>
+
       <Box
         sx={{
           display: { xs: "none", md: "block" },
@@ -49,7 +53,7 @@ export const WhatsAppFlotante = ({texto,icon,url}) => {
             letterSpacing: ".2rem",
           }}
         >
-          Escribenos
+          Escríbenos
         </Typography>
       </Box>
     </Box>

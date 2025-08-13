@@ -3,9 +3,10 @@ import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
 import { CalendarMonth } from "@mui/icons-material";
 import styled from "styled-components";
 
+// Estilo animado para borde
 const AnimationCard = styled.div`
   position: relative;
-  padding: .3rem;
+  padding: 0.3rem;
   z-index: 1;
   max-width: 400px;
   min-width: 340px;
@@ -13,7 +14,6 @@ const AnimationCard = styled.div`
   background: #0d0d0d;
   color: white;
   overflow: hidden;
-  
 
   @property --angle {
     syntax: "<angle>";
@@ -26,10 +26,10 @@ const AnimationCard = styled.div`
     position: absolute;
     top: -1px;
     left: -1px;
-    right: -1px;
+    right: -0.3px;
     bottom: -1px;
     border-radius: 20px;
-    padding: 2px; /* grosor del borde fino */
+    padding: 1.5px;
     background: conic-gradient(
       from var(--angle),
       #00ffff,
@@ -55,7 +55,6 @@ const AnimationCard = styled.div`
     }
   }
 `;
-
 
 const ScheduleCard = () => {
   const consultationHours = [
@@ -84,17 +83,19 @@ const ScheduleCard = () => {
       place: "CMU. Sto. Dgo. Este ",
       hours: "2:30 PM - 6:00 PM",
     },
-    // { day: "Sábado", hours: "9:00 AM - 12:00 PM" },
   ];
 
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box
+      component="section"
+      sx={{ padding: 2 }}
+      aria-label="Horarios de consulta"
+    >
       <AnimationCard>
         <Card
           elevation={4}
           sx={{
             maxWidth: 450,
-            minWidth: 300,
             margin: "auto",
             borderRadius: 4,
             background: "rgba(255, 255, 255, 0.2)",
@@ -103,86 +104,68 @@ const ScheduleCard = () => {
         >
           <CardContent>
             <Box
-              variant="h5"
-              component="div"
               sx={{
                 display: "flex",
+                alignItems: "center",
                 justifyContent: "center",
+                mb: 2,
               }}
             >
               <CalendarMonth
                 sx={{
                   color: "red",
                   fontSize: 30,
-                  mr: 1.5,
-                  mt: { xs: 5, md: 1 },
+                  mr: 1,
                 }}
               />
               <Typography
-                align="center"
-                className="footer_underline_titulo"
+                variant="h5"
+                component="h2"
                 sx={{
-                  fontSize: { xs: "1.3rem", md: "1.3rem" },
-                  textAlign: "center",
-                  mb: { xs: 2, md: 3 },
-                  mt: { xs: 5, md: 1 },
                   color: "#01a198",
                   fontFamily: "Poppins",
-                  fontWeight: "900",
-                  letterSpacing: { xs: ".2rem", md: ".2rem" },
-                  textShadow: "1px 1px 2px rgba(0,0,0,0.2)", // sutil sombra
-                
+                  fontWeight: 900,
+                  letterSpacing: ".2rem",
+                  textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
                 }}
               >
                 Horarios Por Cita
               </Typography>
             </Box>
 
-            <Box sx={{ marginTop: 2, mr: 2 }}>
+            <Box component="ul" sx={{ listStyle: "none", pl: 0,mr:2 }}>
               {consultationHours.map((item, index) => (
                 <Grid
+                  component="li"
                   container
-                  key={index}
+                  key={`${item.day}-${index}`}
                   justifyContent="space-between"
+                  role="listitem"
                   sx={{
-                    p: 0.7,
-                    pr: 1,
+                    p: 0.8,
+                    pr: 2,
                     m: 1,
-
+                    borderRadius: 2,
                     backgroundColor: index % 2 === 0 ? "#ffffff" : "#01a198",
-                    borderBottom:
-                      index < consultationHours.length - 1
-                        ? "1px solid #ccc"
-                        : "none",
+                    color: index % 2 === 0 ? "#333" : "#ffffff",
                   }}
                 >
                   <Typography
-                    variant="body1"
+                    component="span"
                     sx={{
                       fontWeight: "bold",
-                      color: index % 2 === 0 ? "#333" : "#ffffff",
-                      ml: 1,
                     }}
                   >
                     {item.day}
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: index % 2 === 0 ? "#de2322" : "#ffffff",
-                      }}
-                    >
-                      {/* {item.place} */}
+                  </Typography>
+                  <Box sx={{ textAlign: "right" }}>
+                    <Typography component="div" sx={{ fontSize: 14 }}>
+                      {item.place}
                     </Typography>
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: index % 2 === 0 ? "#de2322" : "#ffffff",
-                      mr: 1,
-                    }}
-                  >
-                    {item.place}
-                  </Typography>
+                    <Typography component="div" sx={{ fontSize: 13 }}>
+                      {/* {item.hours} */}
+                    </Typography>
+                  </Box>
                 </Grid>
               ))}
             </Box>

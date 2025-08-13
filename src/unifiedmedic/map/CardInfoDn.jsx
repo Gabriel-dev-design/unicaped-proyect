@@ -216,11 +216,11 @@ export const CardInfoDn = () => {
             }}
           >
             <Typography variant="h6" component="div" gutterBottom>
-              Torre (KP)
+              Torre KP – Próximo al Centro Médico UCE.
             </Typography>
 
             <Typography variant="body2" gutterBottom>
-              Av. Pedro Henríquez Ureña 83, Sto. Domingo
+              Av. Pedro Henríquez Ureña 83, Santo Dom. DN.
             </Typography>
 
             <Box component="nav" sx={{ mt: 1 }}>

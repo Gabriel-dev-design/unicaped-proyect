@@ -37,7 +37,7 @@ export const FirstNavBar = ({ toggleDrawer, handleScroll, isDrawerOpen }) => {
           }}
         >
           <Toolbar disableGutters>
-            <Grid sx={{ display: "flex", width: "100%", alignItems: "center" }}>
+            <Grid sx={{ display: "flex", width: "90vw", alignItems: "center" }}>
               <Box
                 component={NavLink}
                 to="/"
@@ -120,6 +120,8 @@ export const FirstNavBar = ({ toggleDrawer, handleScroll, isDrawerOpen }) => {
                   </Typography>
                 </Typography>
               </Box>
+
+             
 
               <Box
                 sx={{

@@ -1,12 +1,11 @@
 import { FacebookOutlined, Instagram, Twitter } from "@mui/icons-material";
-import { Box, Grid2, Typography } from "@mui/material";
+import { Box, Grid2, Typography,  Link as MuiLink, } from "@mui/material";
 import Link from "@mui/material/Link";
 import ScheduleCard from "../components/Utilities/ScheduleCard";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
 export const Footer = () => {
   return (
     <Box
@@ -53,7 +52,7 @@ export const Footer = () => {
             </Typography>
 
             <Typography variant="h6" color="#FFFFFF" sx={{ mt: 1 }}>
-              Torre Profecional Karina Pichardo.
+              Torre KP – Próx. al Centro Médico UCE.
             </Typography>
             <Box
               sx={{
@@ -173,7 +172,7 @@ export const Footer = () => {
                   }}
                 >
                   <LocationOnIcon sx={{ fontSize: "1.5rem" }} />
-                  C. Club Rotario 58, Santo Domingo 11501
+                  C. Club Rotario 58, Santo Domingo Este.
                 </Typography>
               </Link>
             </Box>
@@ -353,20 +352,21 @@ export const Footer = () => {
         </Grid2>
       </Grid2>
       <Box mt={5}>
-        <hr />
+        <hr style={{ borderColor: "#444" }} />
         <Typography
           variant="body2"
           align="center"
-          sx={{ color: "white", p: 2 }}
+          sx={{ color: "#FFFFFF", mt: 2 }}
         >
-          {"Copyright © "}
-          <a
-            href="https://your-website.com/"
-            style={{ color: "white", textDecoration: "none" }}
+          © {new Date().getFullYear()}{" "}
+          <MuiLink
+            href="https://drapuraperez.com/"
+            underline="hover"
+            color="inherit"
           >
-            Your Website
-          </a>
-          {new Date().getFullYear()}
+            drapuraperez.com
+          </MuiLink>
+          . Todos los derechos reservados.
         </Typography>
       </Box>
     </Box>

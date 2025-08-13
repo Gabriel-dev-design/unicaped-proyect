@@ -15,7 +15,7 @@ export function EmblaCarousel() {
     Autoplay({ delay: 7000 }),
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const isSmallScreen = useMediaQuery("(max-width:960px)");
+  const isSmallScreen = useMediaQuery("(max-width:700px)");
 
   const slides = [
     {

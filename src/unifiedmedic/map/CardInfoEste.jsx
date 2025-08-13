@@ -76,14 +76,15 @@ export const CardInfoEste = () => {
             </Typography>
 
             <Typography variant="body2" gutterBottom>
-              Calle Club Rotario, 66, Ensanche Ozama, Santo Domingo Este
+              C/ Club Rotario #66, Ens. Ozama, Santo Dom. Este
             </Typography>
 
             <Box component="nav" sx={{ mt: 1 }}>
               <List disablePadding dense>
                 <ListItem disableGutters>
                   <Link
-                    href="https://maps.app.goo.gl/kLZh2KKzgsqzNhdo7"
+                    // href="https://maps.app.goo.gl/kLZh2KKzgsqzNhdo7"
+                    href="https://www.google.com/maps/place/cardi%C3%https://www.google.https://www.google.com/maps/place/cardi%C3%B3loga+pediatra+Dra.+Pura+perez/@18.4864413,-69.8702393,17.49z/data=!4m6!3m5!1s0x8eaf89002ee11eed:0x7e6c56ace01d3733!8m2!3d18.4865202!4d-69.8683566!16s%2Fg%2F11m6_q6zp_?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D/maps/place/cardi%C3%B3loga+pediatra+Dra.+Pura+perez/@18.4864413,-69.8702393,17.49z/data=!4m6!3m5!1s0x8eaf89002ee11eed:0x7e6c56ace01d3733!8m2!3d18.4865202!4d-69.8683566!16s%2Fg%2F11m6_q6zp_?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D+pediatra+Dra.+Pura+perez/@18.4864518,-69.8684557,21z/data=!4m6!3m5!1s0x8eaf89002ee11eed:0x7e6c56ace01d3733!8m2!3d18.4865202!4d-69.8683566!16s%2Fg%2F11m6_q6zp_?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     underline="hover"
                     sx={{

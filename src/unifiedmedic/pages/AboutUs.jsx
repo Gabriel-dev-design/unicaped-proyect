@@ -19,27 +19,27 @@ import BloodPressureIcon from "@mui/icons-material/MonitorHeart"; // Reusado par
 const services = [
   {
     icon: <FavoriteIcon sx={{ color: "#01a198" }} />,
-    text: "Evaluación cardíaca pediátrica",
+    text: "Evaluación Cardiovascular pediátrica, pre quirurgica, pre medicación y previa práctica de deporte." 
   },
   {
     icon: <MonitorHeartIcon sx={{ color: "#01a198" }} />,
-    text: "Electrocardiograma (ECG)",
+    text: "Realizamos estudios Electrocardiograma (ECG) y ecocardiograma pediatrico "
   },
   {
     icon: <VaccinesIcon sx={{ color: "#01a198" }} />,
-    text: "Ecocardiograma",
+    text: "Diagnóstico y manejo de cardiopatías congénitas "
   },
   {
     icon: <HealingIcon sx={{ color: "#01a198" }} />,
-    text: "Diagnóstico de soplos cardíacos",
+    text: "Enfermedades adquiridas del corazón "
   },
   {
     icon: <LocalHospitalIcon sx={{ color: "#01a198" }} />,
-    text: "Seguimiento postoperatorio",
+    text: "Diagnóstico y seguimiento de arritmias cardíacas"
   },
   {
     icon: <BloodPressureIcon sx={{ color: "#01a198" }} />,
-    text: "Control de hipertensión infantil",
+    text: "prevención y detección de factores de riesgo cardiovascular ( HTA, obesidad, colesterol elevado, diabetes)"
   },
 ];
 
@@ -103,7 +103,8 @@ export const AboutUs = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#F5F5F5",
+        // bgcolor: "#F5F5F5",
+        backgroundColor: 'white',
         py: 1,
         px: { xs: 2, md: 6 },
         borderRadius: 7,
@@ -134,11 +135,11 @@ export const AboutUs = () => {
                 alt="Dra. Pura Pérez"
                 style={styles.image}
               />
-              <Typography sx={styles.name}>
+              <Typography variant="h1" sx={styles.name}>
                 Dra. Pura Elizabeth Pérez
               </Typography>
               <Typography sx={styles.introText}>
-                Hola, soy la Dra. Pura Pérez, médica cardióloga pediátrica. Me
+                Hola, soy la Dra. Pura Pérez, médico cardióloga pediátrica. Me
                 dedico a cuidar el corazón de los niños desde el nacimiento
                 hasta la adolescencia.
               </Typography>
@@ -169,7 +170,7 @@ export const AboutUs = () => {
                     <ListItemIcon>{item.icon}</ListItemIcon>
                     <ListItemText
                       primary={
-                        <Typography
+                        <Typography variant="h2"
                           sx={{
                             color: "#444",
                             fontSize: "1rem",
